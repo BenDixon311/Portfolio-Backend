@@ -1,4 +1,11 @@
 type User {
-  id: ID! @id
+  id: ID! @unique
   name: String!
+}
+
+type Link {
+  id: ID! @unique
+  createdAt: DateTime!
+  description: String!
+  url: String!
 }
