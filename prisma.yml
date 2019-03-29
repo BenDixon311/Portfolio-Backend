@@ -1,0 +1,7 @@
+endpoint: http://localhost:4466/_admin
+datamodel: datamodel.prisma
+databaseType: document
+
+generate:
+  - generator: javascript-client
+    output: ./generated/prisma-client/
