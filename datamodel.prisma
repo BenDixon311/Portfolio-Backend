@@ -1,11 +1,13 @@
 type User {
   id: ID! @unique
+  email: String @unique
   name: String!
+  posts: [Post!]!
 }
 
-type Link {
+type Post {
   id: ID! @unique
-  createdAt: DateTime!
-  description: String!
-  url: String!
+  title: String!
+  published: Boolean! @default(value: "false")
+  author: User
 }
