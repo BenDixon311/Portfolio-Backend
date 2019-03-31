@@ -2,12 +2,16 @@ type Query {
   publishedPosts: [Post!]!
   post(postId: ID!): Post
   postsByUser(userId: ID!): [Post!]!
+  project(projectId: ID!): Project
+  projectByDevType(devtype: DevType!): [Project!]!
+  projectBySolo(solo: Boolean!): [Project!]!
 }
 
 type Mutation {
   createUser(name: String!): User
   createDraft(title: String!, userId: ID!): Post
   publish(postId: ID!): Post
+  createProject(title: String!, description: String!, devtype: DevType!, solo: Boolean!): Project
 }
 
 type User {
@@ -22,4 +26,19 @@ type Post {
   title: String!
   published: Boolean!
   author: User
+}
+
+type Project {
+    id: ID!
+    title: String!
+    description: String!
+    type: DevType!
+    solo: Boolean!
+}
+
+enum DevType {
+  FRONT_END
+  BACK_END
+  FULL_STACK
+  DESIGN
 }

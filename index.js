@@ -13,9 +13,32 @@ const resolvers = {
       return context.prisma.user({
         id: args.userId
       }).posts()
+    },
+    project(root, args, context) {
+      return context.prisma.project({ id: args.projectId })
+    },
+    projectByDevType(root, args, context) {
+      return context.prisma.projects({
+        type: args.devtype
+      }).projects()
+    },
+    projectBySolo(root, args, context) {
+      return context.prisma.projects({
+        solo: args.solo
+      }).projects()
     }
   },
   Mutation: {
+    createProject(root, args, context) {
+      return context.prisma.createProject(
+        {
+          title: args.title,
+          description: args.description,
+          devtype: args.devtype,
+          techtypes: args.techtypes
+        }
+      )
+    },
     createDraft(root, args, context) {
       return context.prisma.createPost(
         {
@@ -55,7 +78,8 @@ const resolvers = {
         id: root.id
       }).author()
     }
-  }
+  },
+
 }
 
 const server = new GraphQLServer({
