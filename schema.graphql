@@ -1,32 +1,17 @@
 type Query {
-  publishedPosts: [Post!]!
-  post(postId: ID!): Post
-  postsByUser(userId: ID!): [Post!]!
   project(projectId: ID!): Project
-  projectByDevType(devtype: DevType!): [Project!]!
-  projectBySolo(solo: Boolean!): [Project!]!
+  projectFrontEnd: [Project!]!
+  projectBackEnd: [Project!]!
+  projectFullStack: [Project!]!
+  projectDesign: [Project!]!
+  projectPersonal: [Project!]!
 }
 
 type Mutation {
-  createUser(name: String!): User
-  createDraft(title: String!, userId: ID!): Post
-  publish(postId: ID!): Post
   createProject(title: String!, description: String!, devtype: DevType!, solo: Boolean!): Project
-}
-
-type User {
-  id: ID!
-  email: String
-  name: String!
-  posts: [Post!]!
-}
-
-type Post {
-  id: ID!
-  title: String!
-  published: Boolean!
-  author: User
-}
+  updateProject(id: ID!, title: String, description: String, devtype: DevType, solo: Boolean): Project
+  deleteProject(id: ID!): Project
+  }
 
 type Project {
     id: ID!
@@ -34,6 +19,7 @@ type Project {
     description: String!
     type: DevType!
     solo: Boolean!
+    projects: [Project!]!
 }
 
 enum DevType {

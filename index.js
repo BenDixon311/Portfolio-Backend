@@ -3,29 +3,41 @@ const { GraphQLServer } = require('graphql-yoga')
 
 const resolvers = {
   Query: {
-    publishedPosts(root, args, context) {
-      return context.prisma.posts({ where: { published: true } })
-    },
-    post(root, args, context) {
-      return context.prisma.post({ id: args.postId })
-    },
-    postsByUser(root, args, context) {
-      return context.prisma.user({
-        id: args.userId
-      }).posts()
-    },
     project(root, args, context) {
       return context.prisma.project({ id: args.projectId })
     },
-    projectByDevType(root, args, context) {
+    projectFrontEnd(root, args, context) {
       return context.prisma.projects({
-        type: args.devtype
-      }).projects()
+        where: {
+          type: "FRONT_END"
+        }
+      })
     },
-    projectBySolo(root, args, context) {
+    projectBackEnd(root, args, context) {
       return context.prisma.projects({
-        solo: args.solo
-      }).projects()
+        where: {
+          type: "BACK_END"
+        }
+      })
+    },
+    projectFullStack(root, args, context) {
+      return context.prisma.projects({
+        where: {
+          type: "FULL_STACK"
+        }
+      })
+    },
+    projectDesign(root, args, context) {
+      return context.prisma.projects({
+        where: {
+          type: "DESIGN"
+        }
+      })
+    },
+    projectPersonal(root, args, context) {
+      return context.prisma.projects({
+        where: { solo: true }
+      })
     }
   },
   Mutation: {
@@ -34,52 +46,32 @@ const resolvers = {
         {
           title: args.title,
           description: args.description,
-          devtype: args.devtype,
-          techtypes: args.techtypes
+          type: args.devtype,
+          solo: args.solo
         }
       )
     },
-    createDraft(root, args, context) {
-      return context.prisma.createPost(
+    updateProject(root, args, context) {
+      return context.prisma.updateProject(
         {
-          title: args.title,
-          author: {
-            connect: { id: args.userId }
+          where: {id: args.id },
+          data: {
+            title: args.title,
+            description: args.description,
+            type: args.devtype,
+            solo: args.solo
           }
-        },
-
+        }
       )
     },
-    publish(root, args, context) {
-      return context.prisma.updatePost(
-        {
-          where: { id: args.postId },
-          data: { published: true },
-        },
-
-      )
-    },
-    createUser(root, args, context) {
-      return context.prisma.createUser(
-        { name: args.name },
+    deleteProject(root, args, context) {
+      return context.prisma.deleteProject(
+        {id: args.id}
       )
     }
-  },
-  User: {
-    posts(root, args, context) {
-      return context.prisma.user({
-        id: root.id
-      }).posts()
-    }
-  },
-  Post: {
-    author(root, args, context) {
-      return context.prisma.post({
-        id: root.id
-      }).author()
-    }
-  },
+ 
 
+}
 }
 
 const server = new GraphQLServer({

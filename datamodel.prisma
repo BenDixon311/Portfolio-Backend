@@ -1,23 +1,10 @@
-type User {
-  id: ID! @unique
-  email: String @unique
-  name: String!
-  posts: [Post!]!
-}
-
-type Post {
-  id: ID! @unique
-  title: String!
-  published: Boolean! @default(value: "false")
-  author: User
-}
-
 type Project {
   id: ID! @unique
   title: String!
   description: String!
   type: DevType!
   solo: Boolean! @default(value: "true")
+  projects: [Project!]!
 }
 
 enum DevType {
