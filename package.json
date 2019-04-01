@@ -4,7 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "graphql-request": "^1.8.2",
     "graphql-yoga": "^1.17.4",
     "prisma-client-lib": "^1.29.2"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "seed": "node seedme.js",
+    "dockerStart": "docker-compose -f docker-compose.yml up -d"
   }
 }

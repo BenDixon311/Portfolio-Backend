@@ -50,7 +50,7 @@ type Project {
   id: ID!
   title: String!
   description: String!
-  type: DevType!
+  devtype: DevType!
   solo: Boolean!
   projects(where: ProjectWhereInput, orderBy: ProjectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Project!]
 }
@@ -65,7 +65,7 @@ input ProjectCreateInput {
   id: ID!
   title: String!
   description: String!
-  type: DevType!
+  devtype: DevType!
   solo: Boolean
   projects: ProjectCreateManyInput
 }
@@ -87,8 +87,8 @@ enum ProjectOrderByInput {
   title_DESC
   description_ASC
   description_DESC
-  type_ASC
-  type_DESC
+  devtype_ASC
+  devtype_DESC
   solo_ASC
   solo_DESC
 }
@@ -97,7 +97,7 @@ type ProjectPreviousValues {
   id: ID!
   title: String!
   description: String!
-  type: DevType!
+  devtype: DevType!
   solo: Boolean!
 }
 
@@ -144,10 +144,10 @@ input ProjectScalarWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
-  type: DevType
-  type_not: DevType
-  type_in: [DevType!]
-  type_not_in: [DevType!]
+  devtype: DevType
+  devtype_not: DevType
+  devtype_in: [DevType!]
+  devtype_not_in: [DevType!]
   solo: Boolean
   solo_not: Boolean
   AND: [ProjectScalarWhereInput!]
@@ -175,7 +175,7 @@ input ProjectUpdateDataInput {
   id: ID
   title: String
   description: String
-  type: DevType
+  devtype: DevType
   solo: Boolean
   projects: ProjectUpdateManyInput
 }
@@ -184,7 +184,7 @@ input ProjectUpdateInput {
   id: ID
   title: String
   description: String
-  type: DevType
+  devtype: DevType
   solo: Boolean
   projects: ProjectUpdateManyInput
 }
@@ -193,7 +193,7 @@ input ProjectUpdateManyDataInput {
   id: ID
   title: String
   description: String
-  type: DevType
+  devtype: DevType
   solo: Boolean
 }
 
@@ -213,7 +213,7 @@ input ProjectUpdateManyMutationInput {
   id: ID
   title: String
   description: String
-  type: DevType
+  devtype: DevType
   solo: Boolean
 }
 
@@ -276,10 +276,10 @@ input ProjectWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
-  type: DevType
-  type_not: DevType
-  type_in: [DevType!]
-  type_not_in: [DevType!]
+  devtype: DevType
+  devtype_not: DevType
+  devtype_in: [DevType!]
+  devtype_not_in: [DevType!]
   solo: Boolean
   solo_not: Boolean
   projects_some: ProjectWhereInput

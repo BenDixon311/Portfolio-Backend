@@ -2,7 +2,7 @@ type Project {
   id: ID! @unique
   title: String!
   description: String!
-  type: DevType!
+  devtype: DevType!
   solo: Boolean! @default(value: "true")
   projects: [Project!]!
 }

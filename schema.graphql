@@ -1,5 +1,6 @@
 type Query {
   project(projectId: ID!): Project
+  projects: [Project!]!
   projectFrontEnd: [Project!]!
   projectBackEnd: [Project!]!
   projectFullStack: [Project!]!
@@ -17,7 +18,7 @@ type Project {
     id: ID!
     title: String!
     description: String!
-    type: DevType!
+    devtype: DevType!
     solo: Boolean!
     projects: [Project!]!
 }

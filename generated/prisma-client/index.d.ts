@@ -112,8 +112,8 @@ export type ProjectOrderByInput =
   | "title_DESC"
   | "description_ASC"
   | "description_DESC"
-  | "type_ASC"
-  | "type_DESC"
+  | "devtype_ASC"
+  | "devtype_DESC"
   | "solo_ASC"
   | "solo_DESC";
 
@@ -177,10 +177,10 @@ export interface ProjectWhereInput {
   description_not_starts_with?: String;
   description_ends_with?: String;
   description_not_ends_with?: String;
-  type?: DevType;
-  type_not?: DevType;
-  type_in?: DevType[] | DevType;
-  type_not_in?: DevType[] | DevType;
+  devtype?: DevType;
+  devtype_not?: DevType;
+  devtype_in?: DevType[] | DevType;
+  devtype_not_in?: DevType[] | DevType;
   solo?: Boolean;
   solo_not?: Boolean;
   projects_some?: ProjectWhereInput;
@@ -196,7 +196,7 @@ export interface ProjectUpdateManyMutationInput {
   id?: ID_Input;
   title?: String;
   description?: String;
-  type?: DevType;
+  devtype?: DevType;
   solo?: Boolean;
 }
 
@@ -222,7 +222,7 @@ export interface ProjectUpdateInput {
   id?: ID_Input;
   title?: String;
   description?: String;
-  type?: DevType;
+  devtype?: DevType;
   solo?: Boolean;
   projects?: ProjectUpdateManyInput;
 }
@@ -231,7 +231,7 @@ export interface ProjectUpdateDataInput {
   id?: ID_Input;
   title?: String;
   description?: String;
-  type?: DevType;
+  devtype?: DevType;
   solo?: Boolean;
   projects?: ProjectUpdateManyInput;
 }
@@ -240,7 +240,7 @@ export interface ProjectCreateInput {
   id: ID_Input;
   title: String;
   description: String;
-  type: DevType;
+  devtype: DevType;
   solo?: Boolean;
   projects?: ProjectCreateManyInput;
 }
@@ -249,7 +249,7 @@ export interface ProjectUpdateManyDataInput {
   id?: ID_Input;
   title?: String;
   description?: String;
-  type?: DevType;
+  devtype?: DevType;
   solo?: Boolean;
 }
 
@@ -305,10 +305,10 @@ export interface ProjectScalarWhereInput {
   description_not_starts_with?: String;
   description_ends_with?: String;
   description_not_ends_with?: String;
-  type?: DevType;
-  type_not?: DevType;
-  type_in?: DevType[] | DevType;
-  type_not_in?: DevType[] | DevType;
+  devtype?: DevType;
+  devtype_not?: DevType;
+  devtype_in?: DevType[] | DevType;
+  devtype_not_in?: DevType[] | DevType;
   solo?: Boolean;
   solo_not?: Boolean;
   AND?: ProjectScalarWhereInput[] | ProjectScalarWhereInput;
@@ -329,7 +329,7 @@ export interface ProjectPreviousValues {
   id: ID_Output;
   title: String;
   description: String;
-  type: DevType;
+  devtype: DevType;
   solo: Boolean;
 }
 
@@ -339,7 +339,7 @@ export interface ProjectPreviousValuesPromise
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   description: () => Promise<String>;
-  type: () => Promise<DevType>;
+  devtype: () => Promise<DevType>;
   solo: () => Promise<Boolean>;
 }
 
@@ -349,7 +349,7 @@ export interface ProjectPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
-  type: () => Promise<AsyncIterator<DevType>>;
+  devtype: () => Promise<AsyncIterator<DevType>>;
   solo: () => Promise<AsyncIterator<Boolean>>;
 }
 
@@ -357,7 +357,7 @@ export interface Project {
   id: ID_Output;
   title: String;
   description: String;
-  type: DevType;
+  devtype: DevType;
   solo: Boolean;
 }
 
@@ -365,7 +365,7 @@ export interface ProjectPromise extends Promise<Project>, Fragmentable {
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   description: () => Promise<String>;
-  type: () => Promise<DevType>;
+  devtype: () => Promise<DevType>;
   solo: () => Promise<Boolean>;
   projects: <T = FragmentableArray<Project>>(
     args?: {
@@ -386,7 +386,7 @@ export interface ProjectSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
   description: () => Promise<AsyncIterator<String>>;
-  type: () => Promise<AsyncIterator<DevType>>;
+  devtype: () => Promise<AsyncIterator<DevType>>;
   solo: () => Promise<AsyncIterator<Boolean>>;
   projects: <T = Promise<AsyncIterator<ProjectSubscription>>>(
     args?: {

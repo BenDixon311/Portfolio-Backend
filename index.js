@@ -6,31 +6,34 @@ const resolvers = {
     project(root, args, context) {
       return context.prisma.project({ id: args.projectId })
     },
+    projects(root, args, context) {
+      return context.prisma.projects()
+    },
     projectFrontEnd(root, args, context) {
       return context.prisma.projects({
         where: {
-          type: "FRONT_END"
+          devtype: "FRONT_END"
         }
       })
     },
     projectBackEnd(root, args, context) {
       return context.prisma.projects({
         where: {
-          type: "BACK_END"
+          devtype: "BACK_END"
         }
       })
     },
     projectFullStack(root, args, context) {
       return context.prisma.projects({
         where: {
-          type: "FULL_STACK"
+          devtype: "FULL_STACK"
         }
       })
     },
     projectDesign(root, args, context) {
       return context.prisma.projects({
         where: {
-          type: "DESIGN"
+          devtype: "DESIGN"
         }
       })
     },
@@ -44,11 +47,13 @@ const resolvers = {
     createProject(root, args, context) {
       return context.prisma.createProject(
         {
+          data: {
           title: args.title,
           description: args.description,
-          type: args.devtype,
+          devtype: args.devtype,
           solo: args.solo
         }
+      }
       )
     },
     updateProject(root, args, context) {
@@ -58,7 +63,7 @@ const resolvers = {
           data: {
             title: args.title,
             description: args.description,
-            type: args.devtype,
+            devtype: args.devtype,
             solo: args.solo
           }
         }

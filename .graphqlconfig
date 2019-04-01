@@ -1,0 +1,12 @@
+{
+      "schemaPath": "schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "default": "http://localhost:4466/"
+        },
+        "load": {
+          "json": "./seedData/seedData.json",
+          "mutation": "createProject"
+        }
+      }
+}
