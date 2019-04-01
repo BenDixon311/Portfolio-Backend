@@ -25,11 +25,11 @@ To install docker follow the link that works for you:
 
 While in the project directory, open a terminal and run
 
- `npm install`
+ `yarn install`
  
  To start docker, run
  
- `npm dockerStart`
+ `yarn dockerStart`
  
  To deploy the Prisma API run
  
@@ -37,13 +37,13 @@ While in the project directory, open a terminal and run
  
  and finally, seed the database by running
  
- `npm seed`
+ `yarn seed`
  
  ## Using the playground
  
  You can get into the playground to use the mutations and queries by running 
  
- `npm start`
+ `yarn start`
  
  After this, navigate to <localhost:4000> in a browser to view the playground.
  
