@@ -45,7 +45,7 @@ While in the project directory, open a terminal and run
  
  `npm start`
  
- After this, navigate to [localhost:4000] in a browser to view the playground.
+ After this, navigate to <localhost:4000> in a browser to view the playground.
  
  # Queries
  
