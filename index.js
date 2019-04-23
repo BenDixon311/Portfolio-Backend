@@ -45,14 +45,14 @@ const resolvers = {
   },
   Mutation: {
     createProject(root, args, context) {
-      return context.prisma.createProject(
+      return prisma.createProject(
         {
-          data: {
+          
           title: args.title,
           description: args.description,
           devtype: args.devtype,
           solo: args.solo
-        }
+        
       }
       )
     },
