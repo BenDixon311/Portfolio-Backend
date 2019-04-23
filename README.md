@@ -138,7 +138,7 @@ mutation {
     id
     title
     description
-    type
+    devtype
     solo
   }
 }
