@@ -115,7 +115,9 @@ export type ProjectOrderByInput =
   | "devtype_ASC"
   | "devtype_DESC"
   | "solo_ASC"
-  | "solo_DESC";
+  | "solo_DESC"
+  | "imgurl_ASC"
+  | "imgurl_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -183,6 +185,20 @@ export interface ProjectWhereInput {
   devtype_not_in?: DevType[] | DevType;
   solo?: Boolean;
   solo_not?: Boolean;
+  imgurl?: String;
+  imgurl_not?: String;
+  imgurl_in?: String[] | String;
+  imgurl_not_in?: String[] | String;
+  imgurl_lt?: String;
+  imgurl_lte?: String;
+  imgurl_gt?: String;
+  imgurl_gte?: String;
+  imgurl_contains?: String;
+  imgurl_not_contains?: String;
+  imgurl_starts_with?: String;
+  imgurl_not_starts_with?: String;
+  imgurl_ends_with?: String;
+  imgurl_not_ends_with?: String;
   projects_some?: ProjectWhereInput;
   AND?: ProjectWhereInput[] | ProjectWhereInput;
 }
@@ -198,6 +214,7 @@ export interface ProjectUpdateManyMutationInput {
   description?: String;
   devtype?: DevType;
   solo?: Boolean;
+  imgurl?: String;
 }
 
 export interface ProjectUpdateManyInput {
@@ -224,6 +241,7 @@ export interface ProjectUpdateInput {
   description?: String;
   devtype?: DevType;
   solo?: Boolean;
+  imgurl?: String;
   projects?: ProjectUpdateManyInput;
 }
 
@@ -233,6 +251,7 @@ export interface ProjectUpdateDataInput {
   description?: String;
   devtype?: DevType;
   solo?: Boolean;
+  imgurl?: String;
   projects?: ProjectUpdateManyInput;
 }
 
@@ -242,6 +261,7 @@ export interface ProjectCreateInput {
   description: String;
   devtype: DevType;
   solo?: Boolean;
+  imgurl: String;
   projects?: ProjectCreateManyInput;
 }
 
@@ -251,6 +271,7 @@ export interface ProjectUpdateManyDataInput {
   description?: String;
   devtype?: DevType;
   solo?: Boolean;
+  imgurl?: String;
 }
 
 export interface ProjectSubscriptionWhereInput {
@@ -311,6 +332,20 @@ export interface ProjectScalarWhereInput {
   devtype_not_in?: DevType[] | DevType;
   solo?: Boolean;
   solo_not?: Boolean;
+  imgurl?: String;
+  imgurl_not?: String;
+  imgurl_in?: String[] | String;
+  imgurl_not_in?: String[] | String;
+  imgurl_lt?: String;
+  imgurl_lte?: String;
+  imgurl_gt?: String;
+  imgurl_gte?: String;
+  imgurl_contains?: String;
+  imgurl_not_contains?: String;
+  imgurl_starts_with?: String;
+  imgurl_not_starts_with?: String;
+  imgurl_ends_with?: String;
+  imgurl_not_ends_with?: String;
   AND?: ProjectScalarWhereInput[] | ProjectScalarWhereInput;
   OR?: ProjectScalarWhereInput[] | ProjectScalarWhereInput;
   NOT?: ProjectScalarWhereInput[] | ProjectScalarWhereInput;
@@ -331,6 +366,7 @@ export interface ProjectPreviousValues {
   description: String;
   devtype: DevType;
   solo: Boolean;
+  imgurl: String;
 }
 
 export interface ProjectPreviousValuesPromise
@@ -341,6 +377,7 @@ export interface ProjectPreviousValuesPromise
   description: () => Promise<String>;
   devtype: () => Promise<DevType>;
   solo: () => Promise<Boolean>;
+  imgurl: () => Promise<String>;
 }
 
 export interface ProjectPreviousValuesSubscription
@@ -351,6 +388,7 @@ export interface ProjectPreviousValuesSubscription
   description: () => Promise<AsyncIterator<String>>;
   devtype: () => Promise<AsyncIterator<DevType>>;
   solo: () => Promise<AsyncIterator<Boolean>>;
+  imgurl: () => Promise<AsyncIterator<String>>;
 }
 
 export interface Project {
@@ -359,6 +397,7 @@ export interface Project {
   description: String;
   devtype: DevType;
   solo: Boolean;
+  imgurl: String;
 }
 
 export interface ProjectPromise extends Promise<Project>, Fragmentable {
@@ -367,6 +406,7 @@ export interface ProjectPromise extends Promise<Project>, Fragmentable {
   description: () => Promise<String>;
   devtype: () => Promise<DevType>;
   solo: () => Promise<Boolean>;
+  imgurl: () => Promise<String>;
   projects: <T = FragmentableArray<Project>>(
     args?: {
       where?: ProjectWhereInput;
@@ -388,6 +428,7 @@ export interface ProjectSubscription
   description: () => Promise<AsyncIterator<String>>;
   devtype: () => Promise<AsyncIterator<DevType>>;
   solo: () => Promise<AsyncIterator<Boolean>>;
+  imgurl: () => Promise<AsyncIterator<String>>;
   projects: <T = Promise<AsyncIterator<ProjectSubscription>>>(
     args?: {
       where?: ProjectWhereInput;

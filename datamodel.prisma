@@ -4,6 +4,7 @@ type Project {
   description: String!
   devtype: DevType!
   solo: Boolean! @default(value: "true")
+  imgurl: String!
   projects: [Project!]!
 }
 

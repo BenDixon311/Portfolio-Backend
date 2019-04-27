@@ -52,6 +52,7 @@ type Project {
   description: String!
   devtype: DevType!
   solo: Boolean!
+  imgurl: String!
   projects(where: ProjectWhereInput, orderBy: ProjectOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Project!]
 }
 
@@ -67,6 +68,7 @@ input ProjectCreateInput {
   description: String!
   devtype: DevType!
   solo: Boolean
+  imgurl: String!
   projects: ProjectCreateManyInput
 }
 
@@ -91,6 +93,8 @@ enum ProjectOrderByInput {
   devtype_DESC
   solo_ASC
   solo_DESC
+  imgurl_ASC
+  imgurl_DESC
 }
 
 type ProjectPreviousValues {
@@ -99,6 +103,7 @@ type ProjectPreviousValues {
   description: String!
   devtype: DevType!
   solo: Boolean!
+  imgurl: String!
 }
 
 input ProjectScalarWhereInput {
@@ -150,6 +155,20 @@ input ProjectScalarWhereInput {
   devtype_not_in: [DevType!]
   solo: Boolean
   solo_not: Boolean
+  imgurl: String
+  imgurl_not: String
+  imgurl_in: [String!]
+  imgurl_not_in: [String!]
+  imgurl_lt: String
+  imgurl_lte: String
+  imgurl_gt: String
+  imgurl_gte: String
+  imgurl_contains: String
+  imgurl_not_contains: String
+  imgurl_starts_with: String
+  imgurl_not_starts_with: String
+  imgurl_ends_with: String
+  imgurl_not_ends_with: String
   AND: [ProjectScalarWhereInput!]
   OR: [ProjectScalarWhereInput!]
   NOT: [ProjectScalarWhereInput!]
@@ -177,6 +196,7 @@ input ProjectUpdateDataInput {
   description: String
   devtype: DevType
   solo: Boolean
+  imgurl: String
   projects: ProjectUpdateManyInput
 }
 
@@ -186,6 +206,7 @@ input ProjectUpdateInput {
   description: String
   devtype: DevType
   solo: Boolean
+  imgurl: String
   projects: ProjectUpdateManyInput
 }
 
@@ -195,6 +216,7 @@ input ProjectUpdateManyDataInput {
   description: String
   devtype: DevType
   solo: Boolean
+  imgurl: String
 }
 
 input ProjectUpdateManyInput {
@@ -215,6 +237,7 @@ input ProjectUpdateManyMutationInput {
   description: String
   devtype: DevType
   solo: Boolean
+  imgurl: String
 }
 
 input ProjectUpdateManyWithWhereNestedInput {
@@ -282,6 +305,20 @@ input ProjectWhereInput {
   devtype_not_in: [DevType!]
   solo: Boolean
   solo_not: Boolean
+  imgurl: String
+  imgurl_not: String
+  imgurl_in: [String!]
+  imgurl_not_in: [String!]
+  imgurl_lt: String
+  imgurl_lte: String
+  imgurl_gt: String
+  imgurl_gte: String
+  imgurl_contains: String
+  imgurl_not_contains: String
+  imgurl_starts_with: String
+  imgurl_not_starts_with: String
+  imgurl_ends_with: String
+  imgurl_not_ends_with: String
   projects_some: ProjectWhereInput
   AND: [ProjectWhereInput!]
 }
