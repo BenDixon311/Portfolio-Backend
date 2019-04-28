@@ -73,54 +73,17 @@ query {
   }
 }
 ```
-### View Frontend Projects
+### View Project by type
 ```
 query {
-  projectFrontEnd{
-    id
+  projectType(projectType: BACK_END){
     title
-    description
     devtype
-  }
-  
-}
-```
-### View Backend Projects
-```
-query {
-  projectBackEnd{
     id
-    title
     description
-    devtype
+    solo
+    imgurl
   }
-  
-}
-```
-
-### View Full Stack Projects
-```
-query {
-  projectFullStack{
-    id
-    title
-    description
-    devtype
-  }
-  
-}
-```
-
-### View Design Projects
-```
-query {
-  projectDesign{
-    id
-    title
-    description
-    devtype
-  }
-  
 }
 ```
 
