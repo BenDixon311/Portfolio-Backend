@@ -30,7 +30,7 @@ async function main() {
    })
 
    newProj = await prisma.createProject({
-    title: 'VueJS App', description: 'Created a Pokemon website using the popular front-end tool, VueJS', devtype: 'BACK_END', solo: false
+    title: 'VueJS App', description: 'Created a Pokemon website using the popular front-end tool, VueJS', devtype: 'FRONT_END', solo: false
     ,imgurl: 'https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR.jpg'
    })
 
