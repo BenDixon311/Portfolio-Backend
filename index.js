@@ -51,7 +51,8 @@ const resolvers = {
           title: args.title,
           description: args.description,
           devtype: args.devtype,
-          solo: args.solo
+          solo: args.solo,
+          imgurl: args.imgurl
         
       }
       )
@@ -64,7 +65,8 @@ const resolvers = {
             title: args.title,
             description: args.description,
             devtype: args.devtype,
-            solo: args.solo
+            solo: args.solo,
+            imgurl: args.imgurl
           }
         }
       )

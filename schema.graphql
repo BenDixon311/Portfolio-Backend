@@ -9,8 +9,8 @@ type Query {
 }
 
 type Mutation {
-  createProject(title: String!, description: String!, devtype: DevType!, solo: Boolean!): Project
-  updateProject(id: ID!, title: String, description: String, devtype: DevType, solo: Boolean): Project
+  createProject(title: String!, description: String!, devtype: DevType!, solo: Boolean!, imgurl: String!): Project
+  updateProject(id: ID!, title: String, description: String, devtype: DevType, solo: Boolean, imgurl: String!): Project
   deleteProject(id: ID!): Project
   }
 
