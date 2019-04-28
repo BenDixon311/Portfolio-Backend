@@ -41,6 +41,11 @@ const resolvers = {
       return context.prisma.projects({
         where: { solo: true }
       })
+    },
+    projectType(root, args, context) {
+      return context.prisma.projects({
+        where: { devtype: args.projectType }
+      })
     }
   },
   Mutation: {

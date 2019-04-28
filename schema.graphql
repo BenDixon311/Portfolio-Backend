@@ -6,6 +6,7 @@ type Query {
   projectFullStack: [Project!]!
   projectDesign: [Project!]!
   projectPersonal: [Project!]!
+  projectType(projectType: DevType!): [Project!]!
 }
 
 type Mutation {
