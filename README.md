@@ -152,7 +152,7 @@ mutation {
   title: "Updated Project Title!!!!!!!!!!!!!!!!!!!"){
     title
     description
-    type
+    devtype
     solo
   }
 }
