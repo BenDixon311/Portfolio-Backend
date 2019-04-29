@@ -31,6 +31,10 @@ While in the project directory, open a terminal and run
  
  `yarn dockerStart`
  
+ start the server by running
+ 
+ `yarn start`
+ 
  To deploy the Prisma API run
  
  `prisma deploy`
@@ -41,9 +45,6 @@ While in the project directory, open a terminal and run
  
  ## Using the playground
  
- You can get into the playground to use the mutations and queries by running 
- 
- `yarn start`
  
  After this, navigate to <localhost:4000> in a browser to view the playground.
  
